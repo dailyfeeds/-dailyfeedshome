@@ -1,0 +1,37 @@
+.userRightContainer {
+  flex: 1;
+  min-height: 600px;
+  width: 1280px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 24px;
+  @media (max-width: 960px) {
+    max-width: 100%;
+    flex-direction: column;
+    text-align: center;
+  }
+  .userArticleContainer {
+    border-bottom: 1px solid #e3e4e8;
+    .authorSty {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      font-weight: 500;
+      color: #000;
+      cursor: pointer;
+      &:hover {
+        color: #0045ff;
+      }
+    }
+  }
+  .contentHtml {
+    word-break: break-word;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #3c3f56;
+    cursor: pointer;
+    img {
+      max-width: 90%;
+    }
+  }
+}

@@ -1,42 +1,63 @@
-import { FC, useState, useRef } from 'react';
-import { Comment, Avatar, Spin, Tooltip } from 'antd';
-import moment from 'moment';
+import { FC, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getRecommendedAuthorData } from "@/utils/api";
+import { axiosResult, recommendedAuthorParams } from '@/utils/type';
+import refreshImg from "@/assets/images/refresh.svg";
+
 import './index.less';
 
-type InitProps = {
-  data: any;
-  loading: boolean;
-};
+interface recommendedProp {
+  address: string;
+  authorId: string;
+  avatarURL: string;
+  description: string;
+  displayName: string;
+  domain: string;
+  ens: string;
+  latestPublishTime: number | string
+}
 
-const BuyRight: FC<InitProps> = ({ data, loading }) => {
+const HomeRight: FC = () => {
+  const navigate = useNavigate();
 
-  const contentContainer = (content: string) => {
-    return <div dangerouslySetInnerHTML={{ __html: content }} className='contentHtml' />
+  const [recommendedAuthor, HandleRecommendedAuthor] = useState<Array<recommendedProp>>([])
+
+  useEffect(() => {
+    let params = {
+      num: 10,
+      after_ts: '',
+      after_id: '',
+    }
+    getRecommendedAuthor(params)
+  }, [])
+
+  const getRecommendedAuthor = (params: recommendedAuthorParams) => {
+    getRecommendedAuthorData(params).then((res: axiosResult) => {
+      if (res.code === 0) {
+        HandleRecommendedAuthor(res.result)
+      }
+    })
   }
 
   return (
-    <div className='buyRightContainer'>
-      <Spin spinning={loading}>
-        {
-          data.map((item: any) => {
-            return (
-              <Comment
-                key={item.id}
-                author={<span>{item.title}</span>}
-                avatar={<Avatar src={item.author_info.avatar} alt="avatar" />}
-                content={contentContainer(item.body.snippet)}
-                datetime={
-                  <Tooltip title={moment((item.create_time) * 1000).format('YYYY-MM-DD HH:mm:ss')}>
-                    <span>{moment((item.create_time) * 1000).fromNow()}</span>
-                  </Tooltip>
-                }
-              />
-            )
-          })
-        }
-      </Spin>
+    <div className='homeRightContainer'>
+      <div className='homeRightTop'>
+        <div className='homeRightTopTitle'>值得关注</div>
+        <img className='homeRightTopImg' src={refreshImg} alt="refresh" />
+      </div>
+      {recommendedAuthor.map((item) => {
+        return (
+          <div key={item.address} className='recommendedAuthorContainer'>
+            <div className='containerLeft' onClick={() => { navigate(`/author/${item.address}`) }}>
+              <img src={item.avatarURL} alt="avatar" />
+              <span>{item.displayName}</span>
+            </div>
+            <div className='containerRight'>关注</div>
+          </div>
+        )
+      })}
     </div>
   )
 };
 
-export default BuyRight
+export default HomeRight

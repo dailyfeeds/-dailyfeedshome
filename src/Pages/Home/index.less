@@ -1,11 +1,25 @@
-.buySellContainer {
-  width: 1280px;
+.homePageContainer {
   display: flex;
-  padding-top: 80px;
   margin: auto;
-  min-height: calc(100vh - 120px);
+  margin-top: 24px;
+  border-radius: 12px;
+  min-height: calc(100vh - 104px);
+  overflow: scroll;
+  justify-content: center;
   @media (max-width: 960px) {
     width: 100%;
     flex-direction: column;
+  }
+  .container {
+    width: 1280px;
+    display: flex;
+    // box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.05);
+  }
+}
+.homeBottomContainer {
+  text-align: center;
+  margin: 24px 0;
+  .buttonSty {
+    border-radius: 20px;
   }
 }

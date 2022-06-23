@@ -1,17 +1,48 @@
-.buyRightContainer {
-  flex: 1;
-  margin-top: 30px;
-  width: 880px;
-  min-height: 600px;
+.homeRightContainer {
+  width: 300px;
+  padding: 24px 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-left: 24px;
+  height: 572px;
   @media (max-width: 960px) {
-    max-width: 100%;
-    flex-direction: column;
-    text-align: center;
+    margin: auto;
   }
-  .contentHtml {
-    p {
-      white-space: normal;
-      margin-bottom: 0;
+  .homeRightTop {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px;
+    .homeRightTopTitle {
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+    .homeRightTopImg {
+      width: 24px;
+    }
+  }
+  .recommendedAuthorContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(229 231 235);
+    &:hover {
+      background: rgb(249 250 251);
+    }
+    .containerLeft {
+      img {
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        margin-right: 8px;
+      }
+    }
+    .containerRight {
+      color: rgb(107 114 128);
+      font-weight: 500;
+      cursor: pointer;
     }
   }
 }

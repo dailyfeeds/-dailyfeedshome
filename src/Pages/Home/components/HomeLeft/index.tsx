@@ -9,8 +9,8 @@ type InitProps = {
 const HomeLeft: FC<InitProps> = ({ changeData }) => {
 
   return (
-    <div className='buyLeftContainer'>
-
+    <div className='homeLeftContainer'>
+      <div className='title'>DailyFeeds</div>
     </div>
   )
 };

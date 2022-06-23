@@ -1,7 +1,10 @@
 import { FC, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { setTwoToneColor } from '@ant-design/icons';
-import BuySell from "./Pages/Home";
+import Home from "./Pages/Home";
+import UserHome from "./Pages/UserHome";
+import SearchPage from "./Pages/SearchPage";
+import ArticleDetails from "./Pages/ArticleDetails";
 import './styles/index.less';
 
 const App: FC = () => {
@@ -12,7 +15,10 @@ const App: FC = () => {
 
   return (<Router >
     <Routes>
-      <Route path="/" element={<BuySell />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/search/:searchWord" element={<SearchPage />} />
+      <Route path="/author/:address" element={<UserHome />} />
+      <Route path="/details/:id" element={<ArticleDetails />} />
     </Routes>
   </Router>)
 };

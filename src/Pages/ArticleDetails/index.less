@@ -1,0 +1,38 @@
+.ArticleDetailsContainer {
+  width: 1280px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  // margin-top: 100px;
+  margin-top: 24px;
+  padding: 20px;
+  min-height: calc(100vh - 120px);
+  @media (max-width: 960px) {
+    width: 100%;
+  }
+  .authorSty {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    color: #000;
+    cursor: pointer;
+    &:hover {
+      color: #0045ff;
+    }
+  }
+  .authorTimeSty {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgb(107 114 128/1);
+    .authorTimeA {
+      margin-left: 8px;
+    }
+  }
+  img {
+    max-width: 1000px;
+    @media (max-width: 960px) {
+      width: 90%;
+    }
+  }
+}
