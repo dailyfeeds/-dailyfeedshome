@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import Logo from "@/assets/images/avatar.jpeg";
+import Logo from "@/assets/images/avatar.png";
 import "./index.less";
 
 const { Search } = Input;
@@ -25,7 +25,7 @@ const Header: FC<InitProps> = ({ }) => {
             <h2>DailyFeeds</h2>
             <Search
               className="searchContainer"
-              placeholder="搜索文章或作者"
+              placeholder="Search for articles or writers"
               onSearch={onSearch}
               allowClear
               size="large"

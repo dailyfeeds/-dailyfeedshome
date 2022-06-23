@@ -1,3 +1,3 @@
-const baseUrl = 'http://192.168.0.41:8765'
+const baseUrl = 'http://119.28.250.184:8765'
 
 export { baseUrl }

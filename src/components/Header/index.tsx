@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from "react";
 import { Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import Logo from "@/assets/images/avatar.jpeg";
+import Logo from "@/assets/images/avatar.png";
 import "./index.less";
 
 const { Search } = Input;

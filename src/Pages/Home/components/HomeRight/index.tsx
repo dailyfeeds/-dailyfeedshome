@@ -42,7 +42,7 @@ const HomeRight: FC = () => {
   return (
     <div className='homeRightContainer'>
       <div className='homeRightTop'>
-        <div className='homeRightTopTitle'>值得关注</div>
+        <div className='homeRightTopTitle'>Recommended</div>
         <img className='homeRightTopImg' src={refreshImg} alt="refresh" />
       </div>
       {recommendedAuthor.map((item) => {
@@ -52,7 +52,7 @@ const HomeRight: FC = () => {
               <img src={item.avatarURL} alt="avatar" />
               <span>{item.displayName}</span>
             </div>
-            <div className='containerRight'>关注</div>
+            <div className='containerRight'>Follow</div>
           </div>
         )
       })}
