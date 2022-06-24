@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c07a8008.chunk.css",
+    "main.js": "/static/js/main.8d465b2b.chunk.js",
+    "main.js.map": "/static/js/main.8d465b2b.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0c7706e1.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0c7706e1.js.map",
+    "static/css/2.da9f333b.chunk.css": "/static/css/2.da9f333b.chunk.css",
+    "static/js/2.0fd51da0.chunk.js": "/static/js/2.0fd51da0.chunk.js",
+    "static/js/2.0fd51da0.chunk.js.map": "/static/js/2.0fd51da0.chunk.js.map",
+    "static/js/3.37982e55.chunk.js": "/static/js/3.37982e55.chunk.js",
+    "static/js/3.37982e55.chunk.js.map": "/static/js/3.37982e55.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.da9f333b.chunk.css.map": "/static/css/2.da9f333b.chunk.css.map",
+    "static/css/main.c07a8008.chunk.css.map": "/static/css/main.c07a8008.chunk.css.map",
+    "static/js/2.0fd51da0.chunk.js.LICENSE.txt": "/static/js/2.0fd51da0.chunk.js.LICENSE.txt",
+    "static/media/index.less": "/static/media/samsungsharpsans-bold.96a7360f.svg",
+    "static/media/avatar.b06802df.png": "/static/media/avatar.b06802df.png",
+    "static/media/refresh.8770d521.svg": "/static/media/refresh.8770d521.svg",
+    "static/media/renwu.2ad43e92.svg": "/static/media/renwu.2ad43e92.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0c7706e1.js",
+    "static/css/2.da9f333b.chunk.css",
+    "static/js/2.0fd51da0.chunk.js",
+    "static/css/main.c07a8008.chunk.css",
+    "static/js/main.8d465b2b.chunk.js"
+  ]
+}
