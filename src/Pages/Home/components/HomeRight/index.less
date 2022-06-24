@@ -5,25 +5,16 @@
   display: flex;
   flex-direction: column;
   margin-left: 24px;
-  height: 600px;
+  height: calc(100vh - 128px);
+  position: relative;
   @media (max-width: 960px) {
     margin: auto;
-  }
-  .connectBtnContainer {
-    padding: 0 12px;
-    text-align: center;
-    margin-bottom: 24px;
-    .connectBtn {
-      border-radius: 20px;
-      width: 276px;
-      height: 36px;
-      font-size: 16px;
-    }
   }
   .homeRightTop {
     display: flex;
     justify-content: space-between;
     padding: 0 12px;
+    margin-bottom: 12px;
     .homeRightTopTitle {
       font-weight: 700;
       font-size: 1rem;
@@ -52,12 +43,67 @@
       }
     }
     .containerRight {
-      color: rgb(107 114 128);
+      background-color: rgb(15, 20, 25);
+      padding: 0px 12px;
+      border-radius: 12px;
+      color: #fff;
       font-weight: 500;
       cursor: pointer;
     }
   }
   .lasterRecommendedAuthorContainer {
     border-bottom: none;
+  }
+  .bottomSty {
+    position: absolute;
+    bottom: 60px;
+    cursor: pointer;
+    padding: 0 12px;
+    .follow {
+      font-family: OpenSans-Bold;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 25px;
+      letter-spacing: 0px;
+      color: #3c3f56;
+      margin-bottom: 24px;
+    }
+    .followChat {
+      .chatImg {
+        width: 36px;
+        margin-right: 24px;
+      }
+    }
+  }
+}
+
+.connectWalletModal {
+  .ant-modal-content {
+    border-radius: 24px;
+    .ant-modal-header {
+      border-bottom: none;
+      border-radius: 24px 24px 0 0;
+      .ant-modal-title {
+        font-weight: 800;
+        font-size: 24px;
+      }
+    }
+    .walletList {
+      display: flex;
+      padding: 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      &:hover {
+        background-color: #ccc;
+      }
+      .leftWalletIcon {
+        width: 24px;
+      }
+      .rightWalletTitle {
+        font-size: 16px;
+        font-weight: 700;
+        margin-left: 12px;
+      }
+    }
   }
 }

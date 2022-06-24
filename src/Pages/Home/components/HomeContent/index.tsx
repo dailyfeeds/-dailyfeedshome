@@ -29,7 +29,7 @@ const HomeContent: FC<InitProps> = ({ data, loading, refreshArticleData }) => {
   // }, [scrollRef, scrollRef.current])
 
   const contentContainer = (content: string, id: string) => {
-    let str = content.replace('![', '[').replace('**', '').replace('#', '').replace('##', '').replace('###', '').replace('\n\n', ' ').replace('\n', ' ')
+    let str = content.replace('![', '[').replace('**', '').replace('###', '').replace('##', '').replace('#', '').replace('\n\n', ' ').replace('\n', ' ')
 
     //截断最后一个空格内容
     let strIndex = str.lastIndexOf(' ');

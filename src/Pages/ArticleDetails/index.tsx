@@ -92,8 +92,8 @@ const ArticleDetails: FC = () => {
         <Spin spinning={loading && initStyLoading}>
           <Comment
             author={[<div className='authorSty'>{details.title}</div>,
-            <div className='authorTimeSty'>发布于 {loading ? '' : moment((details.publishedAtTimestamp) * 1000).format('YYYY-MM-DD HH:mm:ss')}
-              <a className="authorTimeA" href={`https://mirror.xyz/${details.address}/${details.contentDigest}`} target='_blank'>•Read on Mirror.xyz</a></div>]}
+            <div className='authorTimeSty'>Posted on {loading ? '' : moment((details.publishedAtTimestamp) * 1000).format('YYYY-MM-DD HH:mm:ss')}
+              <a className="authorTimeA" href={`https://mirror.xyz/${details.address}/${details.contentDigest}`} target='_blank'>• Read on Mirror.xyz</a></div>]}
             avatar={<span onClick={() => toUserHome()}>{details.avatarURL ? <Avatar src={details.avatarURL} alt="avatar" /> : <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />}</span>}
             content={<div dangerouslySetInnerHTML={{ __html: detailsContent }} />}
           />

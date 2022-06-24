@@ -1,6 +1,9 @@
-import { FC } from 'react';
-import { Button } from 'antd';
-import renwuImg from '@/assets/images/renwu.svg'
+import { FC, useEffect, useState } from 'react';
+import { observer } from 'mobx-react'
+import { Button, Popover } from 'antd';
+import { useStores } from "@/store";
+import defaultAvatarImg from '@/assets/images/defaultAvatar.svg'
+import loginAvatarImg from '@/assets/images/loginAvatar.svg'
 import './index.less';
 
 
@@ -9,7 +12,28 @@ type InitProps = {
 };
 
 const HomeLeft: FC<InitProps> = ({ changeData }) => {
+  const {
+    HomeStore: { changeWalletAddress, walletAddress },
+  } = useStores()
 
+  const clearWalletAddress = () => {
+    changeWalletAddress('')
+  }
+  const content = () => {
+    return (
+      <div className='personContent'>
+        <div className='settingContainer' onClick={clearWalletAddress}>Sign out</div>
+        <div className='personDetails'>
+          <div className='leftDetails'>
+            <img src={loginAvatarImg} alt="avatar" />
+          </div>
+          <div className='rightDetails'>
+            {`${walletAddress.substring(0, 4)}...${walletAddress.substring(walletAddress.length - 4, walletAddress.length)}`}
+          </div>
+        </div>
+      </div>
+    )
+  }
   return (
     <div className='homeLeftContainer'>
       <h3>Home</h3>
@@ -19,10 +43,12 @@ const HomeLeft: FC<InitProps> = ({ changeData }) => {
 
       <Button type='primary' className='createBtn'>Create</Button>
       <div className='bottomSty'>
-        <img src={renwuImg} alt="" />
+        {
+          walletAddress ? <Popover content={content} title={false}><img src={loginAvatarImg} alt="avatar" /></Popover> : <img src={defaultAvatarImg} alt="avatar" />
+        }
       </div>
     </div>
   )
 };
 
-export default HomeLeft
+export default observer(HomeLeft)

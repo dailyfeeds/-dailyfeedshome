@@ -1,5 +1,6 @@
 import { FC, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import showdown from 'showdown';
 import { Comment, Avatar, Spin, Tooltip } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import moment from 'moment';
@@ -13,8 +14,15 @@ type InitProps = {
 const UserHomeRight: FC<InitProps> = ({ data, loading }) => {
   const navigate = useNavigate();
 
-  const contentContainer = (content: string, contentDigest: string) => {
-    return <div onClick={() => viewDetails(contentDigest)} dangerouslySetInnerHTML={{ __html: content }} className='contentHtml' />
+  const contentContainer = (content: string, id: string) => {
+    let str = content.replace('![', '[').replace('**', '').replace('###', '').replace('##', '').replace('#', '').replace('\n\n', ' ').replace('\n', ' ')
+
+    //截断最后一个空格内容
+    let strIndex = str.lastIndexOf(' ');
+    let finalValue = str.substring(0, strIndex + 1) + "...";
+    let converter = new showdown.Converter()
+    let html = converter.makeHtml(finalValue)
+    return <div onClick={() => viewDetails(id)} dangerouslySetInnerHTML={{ __html: html }} className='contentHtml' />
   }
 
   const viewDetails = (id: string) => {

@@ -1,4 +1,5 @@
 import { FC, useState, useEffect } from 'react';
+import { observer } from 'mobx-react'
 import HomeTop from "../components/HomeTop";
 import HomeLeft from "./components/HomeLeft";
 import HomeContent from "./components/HomeContent";
@@ -58,4 +59,4 @@ const Home: FC = () => {
   )
 };
 
-export default Home
+export default observer(Home)

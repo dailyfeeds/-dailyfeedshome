@@ -35,7 +35,7 @@ const UserHome: FC = () => {
     <>
       <HomeTop />
       <div className='userHome'>
-        <h2>{loading ? '' : `${data.displayName}的文章`}</h2>
+        <h2>{loading ? '' : `Posts From ${data.displayName}`}</h2>
         <HomeRight data={data} loading={loading} />
       </div>
     </>
