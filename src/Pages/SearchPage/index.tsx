@@ -2,6 +2,7 @@ import { FC, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import HomeTop from "../components/HomeTop";
+import showdown from 'showdown'
 import { Comment, Avatar, Spin, Tooltip } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import moment from 'moment';
@@ -29,7 +30,20 @@ const Home: FC = () => {
   }, [])
 
   const contentContainer = (content: string) => {
-    return <div dangerouslySetInnerHTML={{ __html: content }} className='contentHtml' />
+    let str = content.replace('![', '[').replace('**', '').replace('#', '').replace('##', '').replace('###', '').replace('\n\n', ' ').replace('\n', ' ')
+
+    //截断最后一个空格内容
+    let strIndex = str.lastIndexOf(' ');
+    let finalValue = ''
+    console.log('strIndex', strIndex)
+    if (strIndex > 0) {
+      finalValue = str.substring(0, strIndex + 1) + "...";
+    } else {
+      finalValue = str + '...';
+    }
+    let converter = new showdown.Converter()
+    let html = converter.makeHtml(finalValue)
+    return <div dangerouslySetInnerHTML={{ __html: html }} className='contentHtml' />
   }
 
   const viewDetails = (id: string) => {
