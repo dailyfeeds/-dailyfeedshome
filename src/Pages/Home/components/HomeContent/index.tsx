@@ -1,6 +1,7 @@
 import { FC, useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Comment, Avatar, Spin, Tooltip } from 'antd';
+import showdown from 'showdown'
 import { UserOutlined } from '@ant-design/icons';
 import moment from 'moment';
 import './index.less';
@@ -28,7 +29,10 @@ const HomeContent: FC<InitProps> = ({ data, loading, refreshArticleData }) => {
   // }, [scrollRef, scrollRef.current])
 
   const contentContainer = (content: string, id: string) => {
-    return <div onClick={() => viewDetails(id)} dangerouslySetInnerHTML={{ __html: content }} className='contentHtml' />
+    let str = content.replace('![', '[')
+    let converter = new showdown.Converter()
+    let html = converter.makeHtml(str)
+    return <div onClick={() => viewDetails(id)} dangerouslySetInnerHTML={{ __html: html }} className='contentHtml' />
   }
 
   const viewDetails = (id: string) => {

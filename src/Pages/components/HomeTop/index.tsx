@@ -22,7 +22,7 @@ const Header: FC<InitProps> = ({ }) => {
         <div className="nav-left-container">
           <div className="g-link-clear nav-left" >
             <a href="/"><img className="img--logo" src={Logo} alt="logo" /></a>
-            <h2>DailyFeeds</h2>
+            <div className="title">Feed.xyz</div>
             <Search
               className="searchContainer"
               placeholder="Search for articles or writers"

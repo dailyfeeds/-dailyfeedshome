@@ -44,10 +44,10 @@ const Home: FC = () => {
           {
             data.map((item: any) => {
               return (
-                <div key={item.originalDigest} onClick={() => viewDetails(item.id)}>
+                <div key={item.originalDigest} onClick={() => viewDetails(item.contentDigest)}>
                   <Comment
                     author={<span className='authorSty'>{item.title}</span>}
-                    avatar={<div onClick={() => { navigate(`/author/${item.contributor}`) }}>{item.avatarURL ? <Avatar src={item.avatarURL} alt="avatar" /> : <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />}</div>}
+                    avatar={<div onClick={() => { navigate(`/author/${item.address}`) }}>{item.avatarURL ? <Avatar src={item.avatarURL} alt="avatar" /> : <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />}</div>}
                     content={contentContainer(item.snipped)}
                     datetime={
                       <Tooltip title={moment((item.publishedAtTimestamp) * 1000).format('YYYY-MM-DD HH:mm:ss')}>
