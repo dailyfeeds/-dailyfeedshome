@@ -1,5 +1,5 @@
 import request from './request';
-import { articleParams, searchArticleParams, userArticleParams, recommendedAuthorParams } from "./type";
+import { articleParams, searchArticleParams, userArticleParams, recommendedAuthorParams, shareTwitterParams } from "./type";
 
 export function getArticle(params: articleParams) {
   let lan = localStorage.getItem('lan') || 'en'
@@ -39,6 +39,21 @@ export function getRecommendedAuthorData(params: recommendedAuthorParams) {
   let lan = localStorage.getItem('lan') || 'en'
   return request({
     url: `/recommended_contributors?num=${params.num}&after_ts=${params.after_ts}&after_id=${params.after_id}&lan=${lan}`,
+    method: "get",
+  });
+}
+
+export function shareTwitter(params: shareTwitterParams) {
+  return request({
+    url: '/twitter_share',
+    method: "post",
+    data: params,
+  });
+}
+
+export function authorizeTwitter(state: string) {
+  return request({
+    url: `/twitter_authorize?state=${state}`,
     method: "get",
   });
 }

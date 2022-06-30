@@ -35,7 +35,7 @@ service.interceptors.response.use(
   (response) => {
     const res = response.data;
     if (res.code !== 0) {
-      return Promise.reject(res);
+      return response.data;
     } else {
       return response.data;
     }

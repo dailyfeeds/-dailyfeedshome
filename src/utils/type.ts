@@ -49,3 +49,9 @@ export interface recommendedAuthorParams {
   after_ts?: number | string;
   after_id?: number | string
 }
+
+export interface shareTwitterParams {
+  state: string;
+  content_digest: string;
+  text: string
+}

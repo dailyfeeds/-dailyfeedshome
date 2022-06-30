@@ -1,4 +1,4 @@
-import { observable, action, computed, makeObservable } from "mobx";
+import { observable, action, makeObservable, makeAutoObservable } from "mobx";
 
 class AccountStore {
   /**
@@ -8,7 +8,7 @@ class AccountStore {
 
   constructor() {
     // makeObservable 在mobx6 版本之后 比添加项
-    makeObservable(this);
+    makeAutoObservable(this);
   }
 
   /**
