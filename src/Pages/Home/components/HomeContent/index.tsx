@@ -24,7 +24,7 @@ const HomeContent: FC<InitProps> = ({ data, loading, refreshArticleData, getArti
   const [trendingList, handleTrendingList] = useState<Array<string>>([])
 
   useEffect(() => {
-    handleTrendingList(['crypto', 'Web3', 'Ethereum', 'ETH', 'SOL', 'blockchain', 'BTC', 'NFT', 'Gamefi', 'defi', 'Music', 'Airdrop', 'Investment', 'layer2', 'socialfi', 'ido', 'ieo', 'dex', 'trade', 'exchange'])
+    handleTrendingList(['BTC', 'NFT', 'Web3', 'Ethereum', 'ETH', 'Gamefi', 'defi', 'crypto', 'blockchain', 'Music', 'Airdrop', 'Investment', 'layer2', 'socialfi', 'ido', 'ieo', 'dex', 'trade', 'exchange', 'SOL'])
   }, [])
 
   const handleChange = (tag: string, checked: boolean) => {

@@ -59,7 +59,7 @@ const Header: FC = () => {
               allowClear
               size="large"
             />
-            <div className='connectBtnContainer'><Button disabled={Boolean(walletAddress) || Boolean(localStorage.getItem('walletAddress'))} type='primary' className='connectBtn' onClick={() => { handleConnectVisible(true) }}>Connect Wallet</Button></div>
+            <div className='connectBtnContainer'><Button disabled={Boolean(walletAddress) && Boolean(localStorage.getItem('walletAddress'))} type='primary' className='connectBtn' onClick={() => { handleConnectVisible(true) }}>Connect Wallet</Button></div>
           </div>
         </div>
       </div>
