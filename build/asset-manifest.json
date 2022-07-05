@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.aa28a582.chunk.css",
-    "main.js": "/static/js/main.98ab2754.chunk.js",
-    "main.js.map": "/static/js/main.98ab2754.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.79734e05.js",
-    "runtime-main.js.map": "/static/js/runtime-main.79734e05.js.map",
-    "static/css/2.c6e7bb74.chunk.css": "/static/css/2.c6e7bb74.chunk.css",
-    "static/js/2.330e6652.chunk.js": "/static/js/2.330e6652.chunk.js",
-    "static/js/2.330e6652.chunk.js.map": "/static/js/2.330e6652.chunk.js.map",
-    "static/js/3.f4889eeb.chunk.js": "/static/js/3.f4889eeb.chunk.js",
-    "static/js/3.f4889eeb.chunk.js.map": "/static/js/3.f4889eeb.chunk.js.map",
+    "main.css": "/static/css/main.3df5b811.chunk.css",
+    "main.js": "/static/js/main.b4b4bf47.chunk.js",
+    "main.js.map": "/static/js/main.b4b4bf47.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.4dfbf02f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.4dfbf02f.js.map",
+    "static/css/2.cee1c546.chunk.css": "/static/css/2.cee1c546.chunk.css",
+    "static/js/2.906f9cd8.chunk.js": "/static/js/2.906f9cd8.chunk.js",
+    "static/js/2.906f9cd8.chunk.js.map": "/static/js/2.906f9cd8.chunk.js.map",
+    "static/js/3.07d7ac03.chunk.js": "/static/js/3.07d7ac03.chunk.js",
+    "static/js/3.07d7ac03.chunk.js.map": "/static/js/3.07d7ac03.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/2.c6e7bb74.chunk.css.map": "/static/css/2.c6e7bb74.chunk.css.map",
-    "static/css/main.aa28a582.chunk.css.map": "/static/css/main.aa28a582.chunk.css.map",
-    "static/js/2.330e6652.chunk.js.LICENSE.txt": "/static/js/2.330e6652.chunk.js.LICENSE.txt",
+    "static/css/2.cee1c546.chunk.css.map": "/static/css/2.cee1c546.chunk.css.map",
+    "static/css/main.3df5b811.chunk.css.map": "/static/css/main.3df5b811.chunk.css.map",
+    "static/js/2.906f9cd8.chunk.js.LICENSE.txt": "/static/js/2.906f9cd8.chunk.js.LICENSE.txt",
     "static/media/index.less": "/static/media/samsungsharpsans-bold.96a7360f.svg",
     "static/media/avatar.b06802df.png": "/static/media/avatar.b06802df.png",
     "static/media/closeModal.172b6503.svg": "/static/media/closeModal.172b6503.svg",
@@ -26,10 +26,10 @@
     "static/media/refresh.8770d521.svg": "/static/media/refresh.8770d521.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.79734e05.js",
-    "static/css/2.c6e7bb74.chunk.css",
-    "static/js/2.330e6652.chunk.js",
-    "static/css/main.aa28a582.chunk.css",
-    "static/js/main.98ab2754.chunk.js"
+    "static/js/runtime-main.4dfbf02f.js",
+    "static/css/2.cee1c546.chunk.css",
+    "static/js/2.906f9cd8.chunk.js",
+    "static/css/main.3df5b811.chunk.css",
+    "static/js/main.b4b4bf47.chunk.js"
   ]
 }

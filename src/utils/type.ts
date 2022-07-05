@@ -1,5 +1,4 @@
-import { StringGradients } from "antd/lib/progress/progress";
-
+export enum Lan { lan, en }
 export interface getProps {
   [key: string]: any;
 }
@@ -35,6 +34,12 @@ export interface articleParams {
   [key: string]: any;
 }
 
+export interface articleTopicParams {
+  topic: string;
+  lan: Lan | string;
+  scroll_id?: number;
+}
+
 
 export interface userArticleParams {
   address: string;
@@ -55,3 +60,9 @@ export interface shareTwitterParams {
   content_digest: string;
   text: string
 }
+
+export interface authorizeTwitterCallbackParams {
+  state: string;
+  code: string;
+}
+

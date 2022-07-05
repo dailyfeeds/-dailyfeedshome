@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import { observer } from 'mobx-react'
+import { useNavigate } from 'react-router-dom';
 import { Button, Popover } from 'antd';
 import { useStores } from "@/store";
 import defaultAvatarImg from '@/assets/images/defaultAvatar.svg'
@@ -12,6 +13,7 @@ type InitProps = {
 };
 
 const HomeLeft: FC<InitProps> = ({ changeData }) => {
+  const navigate = useNavigate();
   const {
     HomeStore: { changeWalletAddress, walletAddress },
   } = useStores()
@@ -23,6 +25,7 @@ const HomeLeft: FC<InitProps> = ({ changeData }) => {
     return (
       <div className='personContent'>
         <div className='settingContainer' onClick={clearWalletAddress}>Sign out</div>
+        <div className='settingContainer' onClick={() => navigate('/setting')}>Setting</div>
         <div className='personDetails'>
           <div className='leftDetails'>
             <img src={loginAvatarImg} alt="avatar" />

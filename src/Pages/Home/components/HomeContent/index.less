@@ -5,10 +5,22 @@
   background: #fff;
   padding: 24px;
   height: calc(100vh - 128px);
+  min-height: 800px;
   @media (max-width: 960px) {
     max-width: 100%;
     flex-direction: column;
     text-align: center;
+  }
+  .trendingContainer {
+    display: flex;
+    .trendingLeft {
+      margin-right: 8px;
+    }
+    .trendingRight {
+      .ant-tag {
+        margin-bottom: 8px;
+      }
+    }
   }
   .contentHtml {
     word-break: break-word;

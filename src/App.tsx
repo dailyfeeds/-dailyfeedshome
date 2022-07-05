@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import UserHome from "./Pages/UserHome";
 import SearchPage from "./Pages/SearchPage";
 import ArticleDetails from "./Pages/ArticleDetails";
+import Setting from "./Pages/Setting";
 import './styles/index.less';
 
 const App: FC = () => {
@@ -19,6 +20,7 @@ const App: FC = () => {
       <Route path="/search/:searchWord" element={<SearchPage />} />
       <Route path="/author/:address" element={<UserHome />} />
       <Route path="/details/:id" element={<ArticleDetails />} />
+      <Route path="/setting" element={<Setting />} />
     </Routes>
   </Router>)
 };

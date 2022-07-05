@@ -1,5 +1,5 @@
 import request from './request';
-import { articleParams, searchArticleParams, userArticleParams, recommendedAuthorParams, shareTwitterParams } from "./type";
+import { articleParams, articleTopicParams, searchArticleParams, userArticleParams, recommendedAuthorParams, shareTwitterParams, authorizeTwitterCallbackParams } from "./type";
 
 export function getArticle(params: articleParams) {
   let lan = localStorage.getItem('lan') || 'en'
@@ -7,6 +7,13 @@ export function getArticle(params: articleParams) {
     url: `/latest?num=${params.num}&after_ts=${params.after_ts}&after_id=${params.after_id}&lan=${lan}`,
     method: "get",
     data: params,
+  });
+}
+
+export function getArticleByTopic(params: articleTopicParams) {
+  return request({
+    url: `/search_topic?topic=${params.topic}&lan=${params.lan}&scroll_id=`,
+    method: "get",
   });
 }
 
@@ -54,6 +61,20 @@ export function shareTwitter(params: shareTwitterParams) {
 export function authorizeTwitter(state: string) {
   return request({
     url: `/twitter_authorize?state=${state}`,
+    method: "get",
+  });
+}
+
+export function authorizeTwitterCallback(params: authorizeTwitterCallbackParams) {
+  return request({
+    url: `/twitter_authorize_callback?state=${params.state}&code=${params.code}`,
+    method: "get",
+  });
+}
+
+export function getTwitterConnectStatus(state: string) {
+  return request({
+    url: `/twitter_user?state=${state}`,
     method: "get",
   });
 }
