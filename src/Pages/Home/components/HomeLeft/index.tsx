@@ -18,8 +18,19 @@ const HomeLeft: FC<InitProps> = ({ changeData }) => {
     HomeStore: { changeWalletAddress, walletAddress },
   } = useStores()
 
+  const [address, handleAddress] = useState('')
+
+  useEffect(() => {
+    if (walletAddress) {
+      handleAddress(walletAddress)
+    } else if (localStorage.getItem('walletAddress')) {
+      handleAddress(localStorage.getItem('walletAddress') || '')
+    }
+  }, [walletAddress])
+
   const clearWalletAddress = () => {
-    changeWalletAddress('')
+    changeWalletAddress('');
+    handleAddress('');
     localStorage.clear();
 
   }
@@ -33,7 +44,7 @@ const HomeLeft: FC<InitProps> = ({ changeData }) => {
             <img src={loginAvatarImg} alt="avatar" />
           </div>
           <div className='rightDetails'>
-            {`${walletAddress.substring(0, 4)}...${walletAddress.substring(walletAddress.length - 4, walletAddress.length)}`}
+            {`${address.substring(0, 4)}...${address.substring(address.length - 4, address.length)}`}
           </div>
         </div>
       </div>
@@ -49,7 +60,7 @@ const HomeLeft: FC<InitProps> = ({ changeData }) => {
       <Button type='primary' className='createBtn'>Create</Button>
       <div className='bottomSty'>
         {
-          walletAddress || localStorage.getItem('walletAddress') ? <Popover content={content} title={false}><img src={loginAvatarImg} alt="avatar" /></Popover> : <img src={defaultAvatarImg} alt="avatar" />
+          address ? <Popover content={content} title={false}><img src={loginAvatarImg} alt="avatar" /></Popover> : <img src={defaultAvatarImg} alt="avatar" />
         }
       </div>
     </div>

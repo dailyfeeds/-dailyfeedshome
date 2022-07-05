@@ -43,12 +43,13 @@ const Setting: FC = () => {
   }, [walletAddress, localStorage.getItem('walletAddress')]);
 
   const connectTwitter = () => {
-    if (!walletAddress) {
+    if (!walletAddress && !localStorage.getItem('walletAddress')) {
       message.error('Please Connect Your Wallet')
     } else {
-      authorizeTwitter(walletAddress).then((res: axiosResult) => {
+      let address = walletAddress || localStorage.getItem('walletAddress') || ''
+      authorizeTwitter(address).then((res: axiosResult) => {
         if (res.code === 0) {
-          window.open(res.result)
+          window.open(res.result, '_self')
         } else {
           message.error(res.msg)
         }
