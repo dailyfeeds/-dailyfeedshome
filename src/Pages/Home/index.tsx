@@ -4,7 +4,7 @@ import HomeTop from "../components/HomeTop";
 import HomeLeft from "./components/HomeLeft";
 import HomeContent from "./components/HomeContent";
 import HomeRight from "./components/HomeRight";
-import { getArticle, getArticleByTopic } from "@/utils/api";
+import { getArticle, getArticleByTopic, getRandomArticle } from "@/utils/api";
 import './index.less';
 import { axiosResult, articleParams, articleTopicParams } from '@/utils/type';
 
@@ -12,6 +12,7 @@ const Home: FC = () => {
   const [articleData, handleData] = useState<any>([])
   const [loading, handleLoading] = useState<boolean>(false)
   const [id, handleId] = useState<number>(0)
+  const [type, handleType] = useState<string>('home')
 
   useEffect(() => {
     let params = {
@@ -34,7 +35,31 @@ const Home: FC = () => {
     })
   }
 
-  const changeData = () => { }
+  const changeData = (type: string) => {
+    handleType(type)
+    if (type === 'share') {
+      let params = {
+        num: 10,
+        after_ts: 0,
+        after_id: ''
+      }
+      handleLoading(true)
+      getRandomArticle(params).then((res: axiosResult) => {
+        handleLoading(false)
+        if (res.code === 0) {
+          handleData(res.result)
+          handleId(res.result[res.result.length - 1].id)
+        }
+      })
+    } else if (type === 'home') {
+      let params = {
+        num: 10,
+        after_ts: 0,
+        after_id: ''
+      }
+      getArticleData(params)
+    }
+  }
 
   const refreshArticleData = () => {
     let params = {
@@ -70,8 +95,8 @@ const Home: FC = () => {
       <HomeTop />
       <div className='homePageContainer' >
         <div className='container'>
-          <HomeLeft changeData={changeData} />
-          <HomeContent data={articleData} loading={loading} refreshArticleData={refreshArticleData} getArticleDataByTopic={getArticleDataByTopic} />
+          <HomeLeft changeData={changeData} type={type} />
+          <HomeContent type={type} data={articleData} loading={loading} refreshArticleData={refreshArticleData} getArticleDataByTopic={getArticleDataByTopic} />
           <HomeRight />
         </div>
       </div>

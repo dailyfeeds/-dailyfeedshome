@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from 'react';
 import { observer } from 'mobx-react'
 import { Button, message } from 'antd';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useStores } from "@/store";
 import { authorizeTwitter } from "@/utils/api";
 import HomeTop from "../components/HomeTop";
@@ -62,7 +62,7 @@ const Setting: FC = (props: any) => {
       <HomeTop />
       <div className='settingContainer'>
         <div className='navLeft'>
-          <h3>Setting</h3>
+          <h3>Settings</h3>
           <div className='tag'>Connections</div>
         </div>
         <div className='containerRight'>

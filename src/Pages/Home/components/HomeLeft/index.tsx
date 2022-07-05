@@ -10,9 +10,10 @@ import './index.less';
 
 type InitProps = {
   changeData: (value: any) => void;
+  type: string;
 };
 
-const HomeLeft: FC<InitProps> = ({ changeData }) => {
+const HomeLeft: FC<InitProps> = ({ changeData, type }) => {
   const navigate = useNavigate();
   const {
     HomeStore: { changeWalletAddress, walletAddress },
@@ -37,8 +38,8 @@ const HomeLeft: FC<InitProps> = ({ changeData }) => {
   const content = () => {
     return (
       <div className='personContent'>
-        <div className='settingContainer' onClick={clearWalletAddress}>Sign out</div>
         <div className='settingContainer' onClick={() => navigate('/setting')}>Setting</div>
+        <div className='settingContainer' onClick={clearWalletAddress}>Sign out</div>
         <div className='personDetails'>
           <div className='leftDetails'>
             <img src={loginAvatarImg} alt="avatar" />
@@ -52,8 +53,8 @@ const HomeLeft: FC<InitProps> = ({ changeData }) => {
   }
   return (
     <div className='homeLeftContainer'>
-      <h3>Home</h3>
-      <h3>Earn</h3>
+      <h3 className={`${type === 'home' ? 'chooseNav' : ''}`} onClick={() => { changeData('home') }}>Home</h3>
+      <h3 className={`${type === 'share' ? 'chooseNav' : ''}`} onClick={() => { changeData('share') }}>Share to Earn</h3>
       <h3>MarketPlace</h3>
       <h3>Stake</h3>
 

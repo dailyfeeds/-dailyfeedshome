@@ -78,3 +78,12 @@ export function getTwitterConnectStatus(state: string) {
     method: "get",
   });
 }
+
+export function getRandomArticle(params: articleParams) {
+  let lan = localStorage.getItem('lan') || 'en'
+  return request({
+    url: `/random_articles?num=${params.num}&after_ts=${params.after_ts}&after_id=${params.after_id}&lan=${lan}`,
+    method: "get",
+    data: params,
+  });
+}
