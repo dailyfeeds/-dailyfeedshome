@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from 'react';
 import { observer } from 'mobx-react'
 import { Button, message } from 'antd';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { useStores } from "@/store";
 import { authorizeTwitter } from "@/utils/api";
 import HomeTop from "../components/HomeTop";
@@ -9,16 +9,16 @@ import { authorizeTwitterCallback, getTwitterConnectStatus } from "@/utils/api";
 import './index.less';
 import { axiosResult } from '@/utils/type';
 
-const Setting: FC = () => {
-  const routerParams = useParams();
+const Setting: FC = (props: any) => {
+  const [searchParams] = useSearchParams();
   const { HomeStore: { walletAddress } } = useStores()
 
   const [twitterBtnText, handleTwitterBtnText] = useState('Connect to Twitter')
   const [twitterBtnLogo, handleTwitterBtnLogo] = useState('')
 
   useEffect(() => {
-    let state = routerParams['state'] || '';
-    let code = routerParams['code'] || '';
+    const state = searchParams.get('state')
+    const code = searchParams.get('code')
     if (state && code) {
       let params = { state, code, }
       authorizeTwitterCallback(params).then((res: axiosResult) => {
