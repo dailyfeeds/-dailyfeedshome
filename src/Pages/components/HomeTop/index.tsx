@@ -29,6 +29,7 @@ const Header: FC = () => {
     }
     let relWeb3 = new Web3(Web3.givenProvider)
     relWeb3.eth.requestAccounts().then((res) => {
+      localStorage.setItem('walletAddress', res[0])
       changeWalletAddress(res[0])
       handleConnectVisible(false)
     }).catch((err: any) => {

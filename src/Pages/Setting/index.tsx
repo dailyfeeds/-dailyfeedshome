@@ -31,15 +31,16 @@ const Setting: FC = () => {
   }, []);
 
   useEffect(() => {
-    if (walletAddress) {
-      getTwitterConnectStatus(walletAddress).then((res: axiosResult) => {
+    if (walletAddress || localStorage.getItem('walletAddress')) {
+      let address = walletAddress || localStorage.getItem('walletAddress') || ''
+      getTwitterConnectStatus(address).then((res: axiosResult) => {
         if (res.code === 0) {
           handleTwitterBtnText(res.result.name)
           handleTwitterBtnLogo(res.result.profile_image_url)
         }
       })
     }
-  }, [walletAddress]);
+  }, [walletAddress, localStorage.getItem('walletAddress')]);
 
   const connectTwitter = () => {
     if (!walletAddress) {

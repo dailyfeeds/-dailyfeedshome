@@ -20,6 +20,8 @@ const HomeLeft: FC<InitProps> = ({ changeData }) => {
 
   const clearWalletAddress = () => {
     changeWalletAddress('')
+    localStorage.clear();
+
   }
   const content = () => {
     return (
@@ -47,7 +49,7 @@ const HomeLeft: FC<InitProps> = ({ changeData }) => {
       <Button type='primary' className='createBtn'>Create</Button>
       <div className='bottomSty'>
         {
-          walletAddress ? <Popover content={content} title={false}><img src={loginAvatarImg} alt="avatar" /></Popover> : <img src={defaultAvatarImg} alt="avatar" />
+          walletAddress || localStorage.getItem('walletAddress') ? <Popover content={content} title={false}><img src={loginAvatarImg} alt="avatar" /></Popover> : <img src={defaultAvatarImg} alt="avatar" />
         }
       </div>
     </div>
