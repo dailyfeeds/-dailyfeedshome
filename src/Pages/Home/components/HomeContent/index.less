@@ -2,6 +2,12 @@
   flex: 1;
   width: 740px;
   overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  // overflow-y: hidden;
   background: #fff;
   padding: 24px;
   height: calc(100vh - 128px);
@@ -60,4 +66,7 @@
       }
     }
   }
+}
+::-webkit-scrollbar {
+  display: none;
 }
